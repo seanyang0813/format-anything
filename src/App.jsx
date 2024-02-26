@@ -68,7 +68,9 @@ function App() {
                 const { mask, scores } = data;
 
                 setMaskInfo(data);
-                setResText(getProcessedImage(data, code));
+                if (codeRef.current) {
+                    setResText(getProcessedImage(data, codeRef.current));
+                }
             } else if (type === "segment_result") {
                 if (data === "start") {
                     setModelState(states.SEGMENTING);
@@ -111,12 +113,18 @@ function App() {
         `
     );
 
+    const codeRef = useRef(code);
+
     useEffect(() => {
         // try to call decode if there are points
         if (points.length > 0 && worker.current) {
             worker.current.postMessage({ type: "decode", data: points });
         }
     }, [points]);
+
+    useEffect(() => {
+        codeRef.current = code;
+    }, [code]);
 
     return (
         <main className="flex flex-col items-center min-h-max min-h-screen bg-gradient-to-r from-gray-100 via-gray-150 to-gray-200 p-10">

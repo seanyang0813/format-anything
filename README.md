@@ -1,8 +1,7 @@
-# React + Vite
+# Format anything model
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Build on top of https://huggingface.co/spaces/Xenova/segment-anything-web/tree/main SAM model demo and scale the mask to format code into any shape you want
 
-Currently, two official plugins are available:
+built with @Kevinjzhang and @alexc19113800
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+npm run dev should work locally
